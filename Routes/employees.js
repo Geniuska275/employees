@@ -6,8 +6,21 @@ Router.get("/employees",(req,res)=>{
 })
 
 Router.post("/employees/new",(req,res)=>{
-    let employee=new Employee(req.body)
-    employee.save().then(employee=>res.send(employee)).catch(err=>res.send(err))
+    console.log(req.body)
+    let newemployee={
+        name:req.body.name,
+        age:req.body.age,
+        email:req.body.email,
+        department:req.body.department,
+        salary:req.body.salary,
+        hireDate:req.body.hireDate
+    }
+    Employee.create(newemployee).then(employee=>{
+        res.send(employee)
+    }).catch(err=>{
+        res.send(err)
+    })
+    
 })
 
 module.exports=Router;
