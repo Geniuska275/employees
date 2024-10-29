@@ -5,6 +5,7 @@ const app=express()
 const mongoose=require("mongoose");
 const BodyParser=require("body-parser")
 // connecting to database
+wPXsq2r2yRUHcHrh
 mongoose.connect("mongodb+srv://aigbojie2020:wPXsq2r2yRUHcHrh@cluster0.auvv9.mongodb.net/",{
     useNewUrlParser: true,
     useUnifiedTopology: true,
