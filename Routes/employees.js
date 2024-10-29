@@ -2,7 +2,11 @@ const express=require("express");
 const Router=express.Router();
 const Employee=require("../Models/employee")
 Router.get("/employees",(req,res)=>{
-  res.send("welcome to employee routes")
+   Employee.find({}).then(employees=>{
+       res.send(employees)
+   }).catch(err=>{
+       res.send(err)
+   })
 })
 
 Router.post("/employees/new",(req,res)=>{
