@@ -23,8 +23,9 @@ app.get("/",(req,res)=>{
 app.get("/contact",(req,res)=>{
     res.send("<h1>Contact</h1>")
 })
-app.use(EmployeesRoutes)
+app.use(BodyParser.json())
 app.use(BodyParser.urlencoded({extended:true}))
+app.use(EmployeesRoutes)
 app.listen(port,()=>{
     console.log(`Example app listening at http://localhost:${port}`)
 })
