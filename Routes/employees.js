@@ -9,6 +9,14 @@ Router.get("/employees",(req,res)=>{
    })
 })
 
+Router.get("/employees/Search",(req,res)=>{
+    console.log(req.query)
+    Employee.find({name:req.query.name}).then(employees=>{
+        res.send(employees)
+    }).catch(err=>{
+        res.send(err)
+    })
+})
 Router.post("/employees/new",(req,res)=>{
     console.log(req.body)
     let newemployee={
@@ -26,5 +34,6 @@ Router.post("/employees/new",(req,res)=>{
     })
     
 })
+
 
 module.exports=Router;
