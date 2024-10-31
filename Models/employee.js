@@ -6,7 +6,7 @@ let employeeSchema=new mongoose.Schema({
     email:String,
     department:String,
     salary:Number,
-    hireDate:Date
+    hireDate:{ type: Date, default: Date.now }
 })
 
 module.exports=mongoose.model("Employee",employeeSchema)

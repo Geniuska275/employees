@@ -10,7 +10,7 @@ Router.get("/employees",(req,res)=>{
 })
 
 Router.get("/employees/Search",(req,res)=>{
-    console.log(req.query)
+    
     Employee.find({name:req.query.name}).then(employees=>{
         res.send(employees)
     }).catch(err=>{
@@ -33,6 +33,16 @@ Router.post("/employees/new",(req,res)=>{
         res.send(err)
     })
     
+})
+
+
+Router.put("Edit/:id",(req,res)=>{
+    console.log(req.params.id)
+    Employee.findByIdAndUpdate(req.params.id,req.body).then(employee=>{
+        res.send(employee)
+    }).catch(err=>{
+        res.send(err)
+    })
 })
 
 
